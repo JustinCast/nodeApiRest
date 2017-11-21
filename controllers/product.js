@@ -32,10 +32,7 @@ function saveProduct(req, res) {
     // almacenar en la base de datos
     let product = new Product({
         name: req.body.name,
-        picture: req.body.picture,
         price: req.body.price,
-        category: req.body.category,
-        description: req.body.description
     })
     // para guardar un producto que cuenta con las funciones de mongoose
     product.save((err, productStored) => {
@@ -47,10 +44,10 @@ function saveProduct(req, res) {
 }
 
 function updateProduct(req, res) {
-    let productId  = req.params.productId
+    let name  = req.params.name
     let update = req.body
 
-    Product.findByIdAndUpdate(productId, update, (err, productUpdated) => {
+    Product.findByIdAndUpdate(name, update, (err, productUpdated) => {
         if(err)
             res.status(500).send({message: `Error al actualizar el producto: ${err}`})
         else
@@ -59,7 +56,7 @@ function updateProduct(req, res) {
 }
 
 function deleteProduct(req, res) {
-    let productId  = req.params.productId
+    let name  = req.params.name
     Product.findById(productId, (err, product) => {
         if(err)
             res.status(500).send({message: `Error al encontrar el producto: ${err}`})
