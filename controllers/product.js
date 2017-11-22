@@ -35,22 +35,25 @@ function saveProduct(req, res) {
     // almacenar en la base de datos
     let product = new Product({
         name: req.body.name,
+        description: req.body.description,
         price: req.body.price,
     })
     // para guardar un producto que cuenta con las funciones de mongoose
     product.save((err, productStored) => {
         if(err) res.status(500).send({message: `Error al guardar el producto: ${err}`})
         
-        else
+        else{
             res.status(200).send({product: productStored})
+            console.log("Producto guardado con éxito")
+        }
     })
 }
 
 function updateProduct(req, res) {
-    let name  = req.params.name
+    let productId  = req.params.productId
     let update = req.body
 
-    Product.findByIdAndUpdate(name, update, (err, productUpdated) => {
+    Product.findByIdAndUpdate(productId, update, (err, productUpdated) => {
         if(err)
             res.status(500).send({message: `Error al actualizar el producto: ${err}`})
         else

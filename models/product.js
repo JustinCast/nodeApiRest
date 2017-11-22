@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 // se crea el esquema del producto
 const ProductSchema = Schema({
     name: String,
-    price: { type: Number, default: 0 },
+    description: String,
+    price: { type: String, default: '' },
 })
 
 // de esta manera se exporta el modelo
