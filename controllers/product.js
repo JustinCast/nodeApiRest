@@ -59,7 +59,7 @@ function updateProduct(req, res) {
 }
 
 function deleteProduct(req, res) {
-    let name  = req.params.name
+    let productId  = req.params.productId
     Product.findById(productId, (err, product) => {
         if(err)
             res.status(500).send({message: `Error al encontrar el producto: ${err}`})
