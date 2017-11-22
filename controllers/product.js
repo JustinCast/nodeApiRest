@@ -10,8 +10,10 @@ function getProduct(req, res) {
             return res.status(500).send({message: `Error al realizar la petición: ${err}`})
         else if(!product) 
             return res.status(404).send({message: `El producto no existe: ${err}`})
-        else
+        else{
+            
             res.status(200).send({product})
+        }
     })
 }
 
@@ -21,8 +23,9 @@ function getProducts(req, res) {
             return res.status(500).send({message: `Error al realizar la petición: ${err}`})
         else if(!products)
             return res.status(404).send({message: `No existen productos: ${err}`})
-        else
-            res.status(200).send({products})
+        else{
+            res.status(200).send(products)
+        }
     })
 }
 
