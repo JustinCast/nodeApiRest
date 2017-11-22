@@ -56,8 +56,10 @@ function updateProduct(req, res) {
     Product.findByIdAndUpdate(productId, update, (err, productUpdated) => {
         if(err)
             res.status(500).send({message: `Error al actualizar el producto: ${err}`})
-        else
+        else{
+            console.log("Producto actualizado correctamente")
             res.status(200).send({product: productUpdated})
+        }
     })
 }
 

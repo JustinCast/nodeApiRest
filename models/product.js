@@ -6,7 +6,7 @@ const Schema = mongoose.Schema
 const ProductSchema = Schema({
     name: String,
     description: String,
-    price: { type: String, default: '' },
+    price: String,
 })
 
 // de esta manera se exporta el modelo
