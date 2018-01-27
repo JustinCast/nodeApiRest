@@ -58,7 +58,7 @@ function updateProduct(req, res) {
             res.status(500).send({message: `Error al actualizar el producto: ${err}`})
         else{
             console.log("Producto actualizado correctamente")
-            res.status(200).send({product: productUpdated})
+            res.status(201).send({product: productUpdated})
         }
     })
 }

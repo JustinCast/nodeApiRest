@@ -5,6 +5,10 @@ const bodyParser = require('body-parser') // esta libreria funciona como middlew
 const app = express() // la variable app va tener las funciones de express
 const api = require('./routes/routes')
 
+/**
+ * básicamente le dice al sistema si desea usar un algoritmo simple para el análisis superficial (es decir, falso) 
+ * o un algoritmo complejo para el análisis profundo que puede tratar con objetos anidados
+ */
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json()) // para poder admitir peticiones con el cuerpo del mensaje en formato json
 app.use('/api', api)
